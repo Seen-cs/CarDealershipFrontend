@@ -17,8 +17,9 @@ export default function Dashboard() {
         <GridColumn width={5}><Categories></Categories></GridColumn>
         <GridColumn width={11}>
           <Routes> 
-            <Route path='/products/:name' element={<CarDetails />} />
-            <Route exact  path='/' element={<CarList />} />        
+            <Route path='/car/:name' element={<CarDetails />} />
+            <Route exact  path='/' element={<CarList />} />   
+            <Route   path='/anasayfa' element={<CarList />} />      
             <Route path='/user/register' element={<Register />} />
             <Route path='/user/login' element={<Login />} />
           </Routes>

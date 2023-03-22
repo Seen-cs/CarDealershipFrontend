@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Outlet,Link } from "react-router-dom";
+import {Outlet } from "react-router-dom";
 import "../styles/Navi.css"
 import SignedOut from './SignedOut'
 import SignetIn from './SignetIn'
@@ -21,39 +21,35 @@ export default function Navi() {
   }
 
   return (
-   <> <nav className="navbar navbar-expand-lg bg-body-tertiary dark" >
-   <div className="container-fluid">
-     <Link to={"/"}>asdadadas</Link>
-     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-       <span className="navbar-toggler-icon"></span>
-     </button>
-     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-         <li className="nav-item">
-           <a className="nav-link active" aria-current="page" href="#">Home</a>
-         </li>
-         <li className="nav-item">
-           <a className="nav-link" href="#">Link</a>
-         </li>
-         <li className="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Dropdown
-           </a>
-           <ul className="dropdown-menu">
-             <li><a className="dropdown-item" href="#">Action</a></li>
-             <li><a className="dropdown-item" href="#">Another action</a></li>
-             <li><hr className="dropdown-divider"/></li>
-             <li><a className="dropdown-item" href="#">Something else here</a></li>
-           </ul>
-         </li>
-         <li className="nav-item">
-           <a className="nav-link disabled">Disabled</a>
-         </li>
-       </ul>
+   <> <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <a class="navbar-brand" href="/">Seen Car</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNav">
+     <ul class="navbar-nav">
+       <li class="nav-item active">
+         <a class="nav-link" href="/">Anasayfa</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="/">Arabalar</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="/">İletişim</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="/">Hakkımızda</a>
+       </li>
+     </ul>
+     <ul class="navbar-nav ml-auto">
+       <li class="nav-item">
        {isAuthenticated?<SignetIn signOut={handleSignOut}/>:<SignedOut signIn={handleSignIn}/>}
-     </div>
+       </li>
+     </ul>
    </div>
  </nav>
+       
+     
 
             <Outlet/></>
   )
