@@ -1,0 +1,12 @@
+.list-group{
+    
+        position: fixed;
+        left: 8%;
+        top: 10%;
+        height: 100%;
+        width: 200px;
+        background-color: #fff;
+        /* Diğer stillendirme özellikleri */
+        
+      
+}

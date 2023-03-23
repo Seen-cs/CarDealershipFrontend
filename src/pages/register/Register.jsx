@@ -33,8 +33,8 @@ export default function Register() {
                 }}   >
 
                 <Form className='ui form'>
-                    <ShortenTextInput name="email" placeholder='E-mail' />
-                    <ShortenTextInput name="password" type="password" placeholder='Şifre' />
+                    <ShortenTextInput style={{ width: "30%" }}  name="email" placeholder='E-mail' />
+                    <ShortenTextInput style={{ width: "30%" }} name="password" type="password" placeholder='Şifre' />
                     <Button color='green' type='submit'>Kayıt Ol</Button>
                 </Form>
             </Formik>

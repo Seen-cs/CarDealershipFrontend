@@ -11,11 +11,11 @@ import Login from '../pages/login/Login'
 export default function Dashboard() {
   return (
     <div>
-        <ToastContainer position='bottom-right' />
+        <ToastContainer position='bottom-right'/>
     <Grid>
       <GridRow>
-        <GridColumn width={5}><Categories></Categories></GridColumn>
-        <GridColumn width={11}>
+        
+        <GridColumn >
           <Routes> 
             <Route path='/car/:name' element={<CarDetails />} />
             <Route exact  path='/' element={<CarList />} />   

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ProductService from './services/ProductService'
+import Categories from '../layouts/Categories'
 
 export default function CarDetails() {
     let { name } = useParams()
@@ -12,6 +13,7 @@ export default function CarDetails() {
     productService.getByProductName(name).then(result => setProduct(result.data.data))
   }, [])
   return (
-    <div>CarDetails</div>
+    <div><div class="col-md-5"><Categories></Categories></div>
+    <div class="col-md-7"></div></div>
   )
 }

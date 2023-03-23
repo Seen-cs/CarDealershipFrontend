@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import Categories from '../layouts/Categories'
 
 import ProductService from './services/ProductService'
 
@@ -10,7 +11,12 @@ export default function CarList() {
         productService.getProducts().then(result=>setProducts(result.data.data))
     },[])
   return (
-    <div>{/*products.map((product)=>(
+    <div class="row">
+  <div class="col-md-5"><Categories></Categories></div>
+  <div class="col-md-7">awdawdawd</div>
+
+      
+      {/*products.map((product)=>(
       <div key={product.id} class="card" style={{width: "18rem"}}>
       <img src="..." class="card-img-top" alt="..."/>
       <div class="card-body">
