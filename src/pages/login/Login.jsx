@@ -40,6 +40,8 @@ export default function Login() {
                     userService.login(values).then((result) => {
                         handleLogin(result.data.data)
                         toast.success(result.data.message)
+                        //localStorage.setItem("token",result.data.token)
+                        //localStorage.setItem("user", JSON.stringify(result.data.user))
                         navigate("/")
 
                     }).catch((error) => {

@@ -1,5 +1,4 @@
 import React from 'react'
-import Categories from './Categories'
 import { Grid, GridColumn, GridRow } from 'semantic-ui-react'
 import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
