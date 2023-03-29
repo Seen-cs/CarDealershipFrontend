@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import Categories from '../layouts/Categories'
-
+import { useNavigate } from "react-router-dom";
 import ProductService from './services/ProductService'
 
 export default function CarList() {
-
-  /*useEffect(()=>{
-    if(!localStorage.getItem("token")){
-      navigate("user/login")
-    }
-  })*/
+  const navigate = useNavigate();
+  // useEffect(()=>{
+  //   if(!localStorage.getItem("token")){
+  //     navigate("user/login")
+  //   }
+  // })
   const [products, setProducts] = useState([])
   useEffect(() => {
     let productService = new ProductService()
-    productService.getProducts().then(result => setProducts(result.data))
+    productService.getProducts().then(result => setProducts(result.data.data))
   }, [])
+console.log(typeof products)
   return (
     <div class="row">
       <div class="col-md-5"><Categories></Categories></div>
@@ -30,7 +31,7 @@ export default function CarList() {
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">{product.brand}</li>
-            <li class="list-group-item">{product.model}</li>
+            <li class="list-group-item">{product.brand}</li>
             <li class="list-group-item">{product.year}</li>
           </ul>
           <div class="card-body">

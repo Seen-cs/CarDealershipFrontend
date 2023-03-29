@@ -16,7 +16,7 @@ export default function Dashboard() {
         
         <GridColumn >
           <Routes> 
-            <Route path='/car/:name' element={<CarDetails />} />
+            <Route path='/car' element={<CarDetails />} />
             <Route exact  path='/' element={<CarList />} />   
             <Route   path='/anasayfa' element={<CarList />} />      
             <Route path='/user/register' element={<Register />} />

@@ -1,68 +1,54 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useDispatch } from "react-redux";
-import * as Yup from "yup";
-import UserService from '../services/UserService';
-import { userLogin } from '../store/actions/AuthAction';
-import ShortenTextInput from '../../utilities/customFormControl/ShortenTextInput';
-import { Button, Message } from "semantic-ui-react";
-import { Formik, Form } from 'formik'
-import { toast } from 'react-toastify';
-import { Link } from "react-router-dom";
-import "../../styles/Login.css"
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios'
+
 export default function Login() {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const navigate = useNavigate()
-    const dispatch = useDispatch();
-    const handleLogin = (user) => {
-        dispatch(userLogin(user));
-    };
-    const userService = new UserService()
-    const initialValues = { email: "", password: "" }
-    const schema = Yup.object().shape({
-
-        email: Yup.string()
-            .required("Email alanı zorunludur")
-            .email("Geçerli bir email değil"),
-        password: Yup.string()
-            .required("Şifre zorunludur")
-            .min(6, "Şifre en az 6 karakter uzunlugunda olmalıdır")
-
-    });
-
+    const login = async (e) =>{
+        e.preventDefault();
+        try {
+           
+            let model = {Email: email, Password: password};
+            let response = await axios.post("http://localhost:44303/api/auth/login", model);
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("user", JSON.stringify(response.data.user));
+            navigate("/");
+        } catch (error) {
+            console.error(error);
+        }
+        console.log(email, password)
+    }
     return (
-        
-    
-        <div  className='main'><div style={{ margin: "auto", marginLeft: "50px" }}>
-            <Formik initialValues={initialValues}
-                validationSchema={schema}
-                onSubmit={(values) => {
-                    userService.login(values).then((result) => {
-                        handleLogin(result.data.data)
-                        toast.success(result.data.message)
-                        //localStorage.setItem("token",result.data.token)
-                        //localStorage.setItem("user", JSON.stringify(result.data.user))
-                        navigate("/")
-
-                    }).catch((error) => {
-                        console.log(error)
-                    })
-                }}   >
-
-                <Form width={11} className='ui form'>
-                    <ShortenTextInput style={{ width: "40%"}} name="email" placeholder='E-mail' />
-                    <ShortenTextInput style={{ width: "40%" }} name="password" type="password" placeholder='Şifre' />
-                    <Button style={{ width: "30%" }} color='green' type='submit'>Giriş yap</Button>
-                    
-                </Form>
-
-            </Formik>
-            <Message style={{ width: "30%" ,margin: "0 auto"}} info color="black">
-                        You're not registered? -
-                        <b>
-                            <Link to={"/user/register"} > Register Now</Link>
-                        </b>
-                    </Message>
-        </div></div>
-    )
+    <>
+    <div className="d-flex justify-content-center" style={{marginTop: "70px"}}>
+    <div className="col-md-5">
+    <div className="card">
+        <div className="card-header">
+            <h1>Giriş Sayfası</h1>
+        </div>
+        <div className="card-body">
+            <form onSubmit={login}>
+                <div className="form-group">
+                    <label htmlFor="email">Mail Adresi</label>
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" className="form-control"/>
+                </div>
+                <div className="form-group mt-2">
+                    <label htmlFor="password">Şifre</label>
+                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="email" name="email" className="form-control"/>
+                </div>
+                <div className="form-group mt-2">
+                    <button className="btn btn-outline-primary w-100">Giriş Yap</button>
+                    <Link to="/register" className="mt-2" style={{float:"right"}}>Kayıt Ol</Link>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    </>
+  )
 }
