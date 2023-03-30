@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ProductService from './services/ProductService'
-import Categories from '../layouts/Categories'
-
+import "../styles/CarDetails.css"
+import resim1 from  "../assets/image/cars/details/cd-1.jpg"
 export default function CarDetails() {
     let { name } = useParams()
 
@@ -13,30 +13,34 @@ export default function CarDetails() {
     productService.getByProductName(name).then(result => setProduct(result.data.data))
   }, [])
   return (
-    <div><div class="col-lg-4 col-md-4">
-    <div class="car__item">
-        <div class="car__item__pic__slider owl-carousel">
-            <img src="../assets/image/car-6.jpg" alt=""/>
-            <img src="../assets/image/car-6.jpg" alt=""/>
-            <img src="../assets/image/car-6.jpg" alt=""/>
-            <img src="../assets/image/car-6.jpg" alt=""/>
+    <>
+    <div class="row">
+  <div class="col-4">Sol Yapı</div>
+  <div class="col-8"><div className="container">
+    <div className="row">
+      <div className="col-md-8">
+        <div className="card mb-4">
+          <img src={resim1} className="card-img-top" alt="Car Image" />
+          <div className="card-body">
+            <h5 className="card-title">2018 Mercedes-Benz S-Class</h5>
+            <p className="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec
+              ante vitae turpis fringilla tristique. Integer gravida ac justo at
+              posuere.
+            </p>
+            <a href="#" className="btn btn-primary">
+              Add to Cart
+            </a>
+          </div>
         </div>
-        <div class="car__item__text">
-            <div class="car__item__text__inner">
-                <div class="label-date">2020</div>
-                <h5><a href="#">Toyota camry asv50l-jeteku</a></h5>
-                <ul>
-                    <li><span>35,000</span> mi</li>
-                    <li>Auto</li>
-                    <li><span>700</span> hp</li>
-                </ul>
-            </div>
-            <div class="car__item__price">
-                <span class="car-option sale">For Sale</span>
-                <h6>$73,900</h6>
-            </div>
-        </div>
+      </div>
+      
     </div>
-</div></div>
+  </div></div>
+</div>
+
+   
+    
+  </>
   )
 }
