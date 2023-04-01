@@ -2,6 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function SignetIn({signOut}) {
+  const logOut= ()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
+  }
+
   return (
     <>
        
@@ -16,9 +22,11 @@ export default function SignetIn({signOut}) {
     <li className="dropdown-item" ><Link onClick={signOut} style={{color:"black"}} to={"/user/login"}>Çıkış yap</Link></li>
   </ul>
 </div>*/}
-<button className="btn btn-dark ml-2" style={{marginLeft:"0.5em"}}>
-    <Link className="nav-link text-white" to="/user/login">Çıkış Yap</Link>
-  </button>
+{
+localStorage.getItem("token")&&
+  <button onClick={logOut} className="btn btn-dark ml-2" style={{marginLeft:"0.5em"}}>
+    <Link onClick={signOut} className="nav-link text-white" to="/user/login">Çıkış Yap</Link>
+  </button>}
 
     </>
   )

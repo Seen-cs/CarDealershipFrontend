@@ -16,11 +16,12 @@ export default function Dashboard() {
         
         <GridColumn >
           <Routes> 
-            <Route path='/car' element={<CarDetails />} />
+            <Route path='/cardetail' element={<CarDetails />} />
             <Route exact  path='/' element={<CarList />} />   
             <Route   path='/anasayfa' element={<CarList />} />      
             <Route path='/user/register' element={<Register />} />
             <Route path='/user/login' element={<Login />} />
+            <Route path='/car/add' element={<Login />} />
           </Routes>
         </GridColumn>
       </GridRow>

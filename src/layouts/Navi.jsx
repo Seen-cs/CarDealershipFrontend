@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Navi() {
   
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
   const navigate = useNavigate()
   function handleSignOut(){
       setIsAuthenticated(false)
