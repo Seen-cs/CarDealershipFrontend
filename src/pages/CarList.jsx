@@ -3,13 +3,16 @@ import Categories from '../layouts/Categories'
 import { Link, useNavigate } from "react-router-dom";
 import resim1 from "../assets/image/cars/details/cd-1.jpg"
 import CarService from './services/CarService';
+import Footer from '../layouts/Footer';
+import CarAdd from './CarAdd';
 export default function CarList() {
-  /*const navigate = useNavigate();
+  const navigate = useNavigate();
+ 
    useEffect(()=>{
      if(!localStorage.getItem("token")){
        navigate("user/login")
      }
-   })*/
+   })
   const [products, setProducts] = useState([])
   useEffect(() => {
     let carService = new CarService()
@@ -34,7 +37,7 @@ export default function CarList() {
               <p style={{fontWeight: "bold", fontFamily: "sans-serif", fontSize: "16px"}}>{product.price}₺</p>
               <div className='row'>
                 <div className='col-md-6'><Link className="btn btn-primary d-block mb-2" to={"/cardetail"}>Karta git</Link></div>
-                <div className='col-md-6'><button className="btn btn-primary d-block mb-2">subscribe</button></div>
+                <div className='col-md-6'><button data-bs-toggle="modal" data-bs-target="#addModel" className="btn btn-primary d-block mb-2">subscribe</button></div>
               </div>
             </div>
           </div>
@@ -43,7 +46,51 @@ export default function CarList() {
     </div>
   </div>
 </div>
+<div
+  className="modal fade"
+  id="addModel"
+  aria-hidden="true"
+  aria-labelledby="addModelLabel"
+  tabIndex={-1}
+>
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h1 className="modal-title fs-5" id="exampleModalToggleLabel">
+          Ürün ekle
+        </h1>
+        <button
+          type="button"
+          id="addModelCloseBtn"
+          className="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        />
+      </div>
+      <div className="modal-body">
+        <CarAdd></CarAdd>
+      </div>
+      <div className="modal-footer">
+        <button
+          className="btn btn-secondary"
+          data-bs-target="modal"
+          data-bs-toggle="modal"
+        >
+          Kapat
+        </button>
+        <button
+          className="btn btn-primary"
+          data-bs-target="modal"
+          data-bs-toggle="modal"
+        >
+          Kaydet
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<Footer></Footer>
 </>
   )
 }

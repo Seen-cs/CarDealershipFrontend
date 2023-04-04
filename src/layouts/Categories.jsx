@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from 'react'
 
 import "../styles/Categories.css"
-import CarService from '../pages/services/CarService'
+
+import BrandService from '../pages/services/BrandService'
 export default function Categories() {
 
   const [brands, setBrands] = useState([])
   useEffect(() => {
-    let carService = new CarService()
-    carService.getBrands().then(result => setBrands(result.data.data))
+    let brandService = new BrandService()
+    brandService.getBrands().then(result => setBrands(result.data))
   }, [])
   return (
     
      <>
 
 
-<div className="container">
+<section className="leftSide">
+            <div className="categoriesTitleContainer">
+                <p>Markalar</p>
+            </div>
+            <ul className="categoriesList">
+                {brands.map((brand) => (
+                    <li key={brand.id}>
+                        <a href="/">{brand.name}</a>
+                    </li>
+                ))}
+            </ul>
+        </section>
+{/* <div className="container">
   <div className="row">
     <div className="col-lg-6 col-md-6 col-sm-12">
       <div className="list-group">
@@ -30,10 +43,9 @@ export default function Categories() {
       </div>
     </div>
   </div>
-</div>
+</div> */}
 
 
 </>
   )
-
 }

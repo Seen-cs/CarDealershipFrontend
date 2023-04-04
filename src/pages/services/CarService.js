@@ -8,8 +8,6 @@ export default class CarService{
     getByProductName(productName){
         return axios.get("http://localhost:8080/api/products/getByProductName?productName="+productName)
     }
-    getBrands(){
-        return axios.get("https://localhost:44303/api/brand/getall")
-    }
+    
     
 }

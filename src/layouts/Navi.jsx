@@ -1,10 +1,11 @@
 import React,{useState} from 'react'
-import {Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import "../styles/Navi.css"
 import SignedOut from './SignedOut'
 import SignetIn from './SignetIn'
 import { useNavigate } from 'react-router-dom'
-
+import "../pages/CarAdd"
+import CarAdd from '../pages/CarAdd';
 
 
 
@@ -32,7 +33,7 @@ export default function Navi() {
          <a class="nav-link" href="/">Anasayfa</a>
        </li>
        <li class="nav-item">
-         <a class="nav-link" href="/">Arabalar</a>
+         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#addModel">Araba Ekle</a>
        </li>
        <li class="nav-item">
          <a class="nav-link" href="/">İletişim</a>
@@ -50,7 +51,49 @@ export default function Navi() {
  </nav>
        
      
-
+ <div
+  className="modal fade"
+  id="addModel"
+  aria-hidden="true"
+  aria-labelledby="addModelLabel"
+  tabIndex={-1}
+>
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h1 className="modal-title fs-5" id="exampleModalToggleLabel">
+          Ürün ekle
+        </h1>
+        <button
+          type="button"
+          id="addModelCloseBtn"
+          className="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        />
+      </div>
+      <div className="modal-body">
+        <CarAdd></CarAdd>
+      </div>
+      <div className="modal-footer">
+        <button
+          className="btn btn-secondary"
+          data-bs-target="modal"
+          data-bs-toggle="modal"
+        >
+         Kapat
+        </button>
+        <button
+          className="btn btn-primary"
+          data-bs-target="modal"
+          data-bs-toggle="modal"
+        >
+          Kaydet
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
             <Outlet/></>
   )
 }

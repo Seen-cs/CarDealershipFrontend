@@ -7,6 +7,7 @@ import CarDetails from '../pages/CarDetails'
 
 import Register from '../pages/register/Register'
 import Login from '../pages/login/Login'
+import CarAdd from '../pages/CarAdd'
 export default function Dashboard() {
   return (
     <div>
@@ -21,7 +22,7 @@ export default function Dashboard() {
             <Route   path='/anasayfa' element={<CarList />} />      
             <Route path='/user/register' element={<Register />} />
             <Route path='/user/login' element={<Login />} />
-            <Route path='/car/add' element={<Login />} />
+            <Route path='/car/add' element={<CarAdd />} />
           </Routes>
         </GridColumn>
       </GridRow>
