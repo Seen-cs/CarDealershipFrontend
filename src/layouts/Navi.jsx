@@ -33,13 +33,13 @@ export default function Navi() {
          <a class="nav-link" href="/">Anasayfa</a>
        </li>
        <li class="nav-item">
-         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#addModel">Araba Ekle</a>
+         <a class="nav-link" href="/" data-bs-toggle="modal" data-bs-target="#addModel">Araba Ekle</a>
        </li>
        <li class="nav-item">
-         <a class="nav-link" href="/">İletişim</a>
+         <a class="nav-link" href="/contact">İletişim</a>
        </li>
        <li class="nav-item">
-         <a class="nav-link" href="/">Hakkımızda</a>
+         <a class="nav-link" href="/about">Hakkımızda</a>
        </li>
      </ul>
      <ul class="navbar-nav ml-auto">

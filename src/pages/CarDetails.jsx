@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import "../styles/CarDetails.css"
 import resim1 from "../assets/image/cars/details/cd-1.jpg"
-import CarService from './services/CarService'
+import CarService from '../services/CarService'
 export default function CarDetails() {
   const navigate = useNavigate();
   

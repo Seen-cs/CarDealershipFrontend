@@ -1,0 +1,68 @@
+
+.about {
+	padding-bottom: 70px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+.section-title.about-title h2 {
+	line-height: 55px;
+}
+
+.section-title.about-title p {
+	font-size: 17px;
+	line-height: 30px;
+	color: #6A6B7C;
+}
+
+.about__feature {
+	padding-bottom: 60px;
+}
+
+.about__feature__item {
+	text-align: center;
+	margin-bottom: 30px;
+	padding: 0 20px;
+}
+
+.about__feature__item h5 {
+	font-size: 20px;
+	color: #353535;
+	font-weight: 700;
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+
+.about__feature__item p {
+	margin-bottom: 0;
+}
+
+.about__pic {
+	margin-bottom: 50px;
+}
+
+.about__pic img {
+	min-width: 100%;
+	border-radius: 10px;
+}
+
+.about__item {
+	margin-bottom: 30px;
+}
+
+.about__item h5 {
+	font-size: 20px;
+	color: #353535;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+
+.about__item p {
+	margin-bottom: 0;
+}
+h{
+    font: caption;
+}
+p{
+    font: bold;
+}

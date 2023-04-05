@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Categories from '../layouts/Categories'
 import { Link, useNavigate } from "react-router-dom";
 import resim1 from "../assets/image/cars/details/cd-1.jpg"
-import CarService from './services/CarService';
+import CarService from '../services/CarService';
 import Footer from '../layouts/Footer';
 import CarAdd from './CarAdd';
 export default function CarList() {

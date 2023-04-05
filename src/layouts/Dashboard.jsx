@@ -8,6 +8,8 @@ import CarDetails from '../pages/CarDetails'
 import Register from '../pages/register/Register'
 import Login from '../pages/login/Login'
 import CarAdd from '../pages/CarAdd'
+import About from '../pages/About'
+import Contact from '../pages/Contact'
 export default function Dashboard() {
   return (
     <div>
@@ -23,6 +25,8 @@ export default function Dashboard() {
             <Route path='/user/register' element={<Register />} />
             <Route path='/user/login' element={<Login />} />
             <Route path='/car/add' element={<CarAdd />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
           </Routes>
         </GridColumn>
       </GridRow>
