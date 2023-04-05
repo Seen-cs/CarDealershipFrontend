@@ -76,20 +76,7 @@ export default function Navi() {
         <CarAdd></CarAdd>
       </div>
       <div className="modal-footer">
-        <button
-          className="btn btn-secondary"
-          data-bs-target="modal"
-          data-bs-toggle="modal"
-        >
-         Kapat
-        </button>
-        <button
-          className="btn btn-primary"
-          data-bs-target="modal"
-          data-bs-toggle="modal"
-        >
-          Kaydet
-        </button>
+       
       </div>
     </div>
   </div>

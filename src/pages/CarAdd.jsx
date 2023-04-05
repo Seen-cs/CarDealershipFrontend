@@ -6,7 +6,7 @@ import BrandService from './services/BrandService';
 import ModelService from './services/ModelService';
 import axios from 'axios';
 
- 
+
 export default function CarAdd() {
   const [brandId, setBrand] = useState("");
   const [modelId, setModel] = useState("");
@@ -17,18 +17,26 @@ export default function CarAdd() {
   const [colorId, setColor] = useState("");
 
   const navigate = useNavigate();
+
   const carAdd = async (e) => {
     e.preventDefault();
-    let model = { BrandId: brandId, ColorId:colorId , Description:description, Km: km, ModelId: modelId, Price: price,Year:year };
-
+    let model = { BrandId: parseInt(brandId), ColorId: parseInt(colorId), Description: description, Km: km, ModelId: parseInt(modelId), Price: parseInt(price), Year: year };
+    const token = localStorage.getItem("token");
+  
     try {
-      const response = await axios.post("https://localhost:44303/api/car/add", model);
-     alert(response.data.message)
-      navigate("/");
+      const response = await axios.post('https://localhost:44303/api/car/add', model, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      alert(response.data.message);
+      navigate("/anasayfa")
     } catch (error) {
-      console.error(error);
+      
+      console.log(error.response.data);
     }
   }
+  
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("user/login")
@@ -55,7 +63,8 @@ export default function CarAdd() {
           <label htmlFor="color">Renk</label>
           <select className="form-control" id="colorId" name="colorId" value={colorId} onChange={(e) => setColor(e.target.value)} >
             {colors.map((color) => (
-              <option key={color.id} value={color.id} placeholder='Renk Seç'>{color.name}</option>
+              <option key={color.id} value={color.id} selected={color.id === colorId}>{color.name}</option>
+              
             ))}
           </select>
 
@@ -64,7 +73,7 @@ export default function CarAdd() {
           <label htmlFor="brandId">Marka</label>
           <select className="form-control" id="brandId" name="brandId" value={brandId} onChange={(e) => setBrand(e.target.value)} >
             {brands.map((brand) => (
-              <option key={brand.id} value={brand.id} placeholder='Marka Seç'>{brand.name}</option>
+              <option key={brand.id} value={brand.id} selected={brand.id === brandId}>{brand.name}</option>
             ))}
           </select>
 
@@ -73,7 +82,7 @@ export default function CarAdd() {
           <label htmlFor="modelId">Model</label>
           <select className="form-control" id="modelId" name="modelId" value={modelId} onChange={(e) => setModel(e.target.value)} >
             {models.map((model) => (
-              <option key={model.id} value={model.id} placeholder='Marka Seç'>{model.name}</option>
+              <option key={model.id} value={model.id}  selected={model.id === modelId}>{model.name}</option>
             ))}
           </select>
 
