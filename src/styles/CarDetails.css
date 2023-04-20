@@ -1,49 +1,51 @@
 .card-img-top {
-    height: 250px;
-    object-fit: cover;
-  }
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 24px;
+}
+
+.card-text {
+  font-size: 16px;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.col-md-4 h2 {
+  margin-top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.card {
   
-  .card-title {
-    font-size: 24px;
-  }
-  
-  .card-text {
-    font-size: 16px;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0062cc;
-    border-color: #005cbf;
-  }
-  
-  .btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
-  }
-  
-  .btn-success:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
-  }
-  
-  .list-group-item {
-    font-size: 16px;
-  }
-  
-  .badge-primary {
-    background-color: #007bff;
-  }
-  
-  .badge-success {
-    background-color: #28a745;
-  }
-  .col-8 {
-    max-width: 1000px;
-    margin: 0 auto; /* İçeriğin merkezlenmesi için */
-  }
- 
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+h5 {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-footer {
+  border-top: 1px solid #dee2e6;
+  background-color: #fff;
+}

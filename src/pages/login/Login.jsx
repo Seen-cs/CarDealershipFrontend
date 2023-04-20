@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
@@ -8,18 +8,24 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    useEffect(()=>{
+        if(localStorage.getItem("token")){
+            navigate("/")
+        }
+        
+    })
     const login = async (e) => {
         e.preventDefault();
+        let model = { Email: email, Password: password };
         try {
-
-            let model = { Email: email, Password: password };
-            let response = await axios.post("https://localhost:44303/api/auth/login", model);
-            localStorage.setItem("token", response.data.token);
-            navigate("/");
+           let response = await axios.post("https://localhost:44303/api/auth/login", model);
+           localStorage.setItem("token", response.data.token);           
+           navigate("/cardetail"); 
+          
         } catch (error) {
             console.error(error);
         }
-        console.log(email, password)
+        
     }
     return (
         <>
@@ -35,7 +41,7 @@ export default function Login() {
                         <input className="form-control"  value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" />
                     </div>
                     <button type="submit">Login</button>
-                    <Link to="/user/register" className="mt-2" style={{marginTop:"2rem"}}>Kayıt Ol</Link>
+                    <Link to="/user/register" className="mt-2" style={{marginTop:"3rem"}}>Kayıt Ol</Link>
                 </form>
             </div>
 

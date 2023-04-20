@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Grid, GridColumn, GridRow } from 'semantic-ui-react'
 import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
@@ -10,7 +11,9 @@ import Login from '../pages/login/Login'
 import CarAdd from '../pages/CarAdd'
 import About from '../pages/About'
 import Contact from '../pages/Contact'
+import Home from '../pages/Home'
 export default function Dashboard() {
+
   return (
     <div>
         <ToastContainer position='bottom-right'/>
@@ -20,8 +23,9 @@ export default function Dashboard() {
         <GridColumn >
           <Routes> 
             <Route path='/cardetail' element={<CarDetails />} />
-            <Route exact  path='/' element={<CarList />} />   
-            <Route   path='/anasayfa' element={<CarList />} />      
+            <Route  exact path='/' element={<Home />} />   
+            <Route   path='/anasayfa' element={<Home />} />  
+            <Route path='/car' element={<CarList />} />
             <Route path='/user/register' element={<Register />} />
             <Route path='/user/login' element={<Login />} />
             <Route path='/car/add' element={<CarAdd />} />
@@ -32,4 +36,5 @@ export default function Dashboard() {
       </GridRow>
     </Grid></div>
   )
+
 }

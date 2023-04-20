@@ -7,7 +7,7 @@ import { BrowserRouter, Outlet } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.min.css'
 import 'semantic-ui-css/semantic.min.css'
-import { configureStore } from './pages/store/ConfigureStore';
+import { configureStore } from './store/ConfigureStore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = configureStore()

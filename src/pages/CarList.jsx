@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import Categories from '../layouts/Categories'
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import resim1 from "../assets/image/cars/details/cd-1.jpg"
 import CarService from '../services/CarService';
 import Footer from '../layouts/Footer';
 import CarAdd from './CarAdd';
 export default function CarList() {
-  const navigate = useNavigate();
+ /* const navigate = useNavigate();
  
    useEffect(()=>{
      if(!localStorage.getItem("token")){
        navigate("user/login")
      }
-   })
+   })*/
   const [products, setProducts] = useState([])
   useEffect(() => {
     let carService = new CarService()
@@ -36,8 +36,8 @@ export default function CarList() {
               <p className="card-text">{product.description}</p>
               <p style={{fontWeight: "bold", fontFamily: "sans-serif", fontSize: "16px"}}>{product.price}₺</p>
               <div className='row'>
-                <div className='col-md-6'><Link className="btn btn-primary d-block mb-2" to={"/cardetail"}>Karta git</Link></div>
-                <div className='col-md-6'><button data-bs-toggle="modal" data-bs-target="#addModel" className="btn btn-primary d-block mb-2">subscribe</button></div>
+                <div ><Link className="btn btn-primary d-block mb-2" to={"/cardetail"}>Karta git</Link></div>
+                
               </div>
             </div>
           </div>

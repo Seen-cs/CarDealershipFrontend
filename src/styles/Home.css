@@ -1,0 +1,60 @@
+/* Set the font family and size for the section title and description */
+
+.feature__text h2,
+.feature__text__desc {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Style the button */
+.btn-secondary {
+  background-color: #444;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: none;
+}
+
+/* Change the color of the button on hover */
+.btn-secondary:hover {
+  background-color: #333;
+  cursor: pointer;
+}
+
+/* Style the feature item icons */
+.feature__item__icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+/* Style the feature item titles */
+.feature__item h6 {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Add some spacing between the feature items */
+.feature__item {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Make the feature item icons responsive */
+@media (max-width: 768px) {
+  .feature__item__icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .feature__item h6 {
+    font-size: 10px;
+  }
+}
+

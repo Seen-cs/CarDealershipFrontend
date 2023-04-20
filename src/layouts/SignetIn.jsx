@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function SignetIn({signOut}) {
   const logOut= ()=>{
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
+   //user silmeyi kaldırdın register işleminde yazdırmayıda kaldırdın
 
   }
 

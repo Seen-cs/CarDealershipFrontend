@@ -16,6 +16,7 @@ export default function CarAdd() {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [colorId, setColor] = useState("");
+
   //const [showModel,SetShowModel]=useState(true)//modelı submit olduğunda kapatacak component içindeki componenti bu yolla kapatabiliyorum ama çerçeve kalıyor//SetShowModel(false);//{showmodel&& kodu buraya yazıyoz}
   const navigate = useNavigate();
   const closeModel = () => {
@@ -45,22 +46,28 @@ export default function CarAdd() {
     }
   }
 
-  useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      navigate("user/login")
-    }
-  })
+  
   const [colors, setColors] = useState([])
   const [brands, setBrands] = useState([])
   const [models, setModels] = useState([])
   useEffect(() => {
-    let colorService = new ColorService()
-    colorService.getColors().then(response => setColors(response.data));
-    let brandService = new BrandService()
-    brandService.getBrands().then(result => setBrands(result.data))
-    let modelService = new ModelService()
-    modelService.getModels().then(result => setModels(result.data))
-  })
+    // if (!localStorage.getItem("token")) {
+    //   navigate("user/login")
+    // } else {
+      let colorService = new ColorService()
+      let brandService = new BrandService()
+      let modelService = new ModelService()
+      Promise.all([
+        colorService.getColors(),
+        brandService.getBrands(),
+        modelService.getModels()
+      ]).then(([colorsResponse, brandsResult, modelsResult]) => {
+        setColors(colorsResponse.data)
+        setBrands(brandsResult.data)
+        setModels(modelsResult.data)
+      })
+    }
+  )
 
 
   return (

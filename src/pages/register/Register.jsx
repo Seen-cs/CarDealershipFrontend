@@ -18,7 +18,6 @@ export default function Register() {
     try {
       const response = await axios.post("https://localhost:44303/api/auth/register", model);
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -48,11 +47,8 @@ export default function Register() {
           <div>
             <button type="submit">Register</button>
           </div>
-
         </form>
       </div>
-
-
     </>
   )
 }
