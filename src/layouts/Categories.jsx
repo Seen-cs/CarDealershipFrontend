@@ -20,7 +20,7 @@ export default function Categories() {
         <ul className="categoriesList">
           {brands.map((brand) => (
             <li key={brand.id}>
-              <a href="/">{brand.name}</a>
+              <a href="#">{brand.name}</a>
             </li>
           ))}
         </ul>

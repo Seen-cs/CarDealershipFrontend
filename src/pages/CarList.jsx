@@ -21,22 +21,23 @@ export default function CarList() {
 
   return (
     <>
-    <div class="row">
+      <div class="row">
   <div class="col-4">
     <Categories></Categories>
+    
   </div>
   <div class="col-8">
     <div className="row flex-wrap">
       {products.map((product) => (
-        <div key={product.carId} className="col-md-4">
+        <div key={product.id} className="col-md-4">
           <div className="card mb-4">
-            <img src={resim1} className="card-img-top" alt="Car Image" />
+            <img src={resim1} className="" alt="Car Image" />
             <div className="card-body">
-              <h5 className="card-title">{product.year} {product.brand} {product.model}</h5>
+              <h5 className="card-title">{product.year}</h5>
               <p className="card-text">{product.description}</p>
               <p style={{fontWeight: "bold", fontFamily: "sans-serif", fontSize: "16px"}}>{product.price}₺</p>
               <div className='row'>
-                <div ><Link className="btn btn-primary d-block mb-2" to={"/cardetail"}>Karta git</Link></div>
+                <div ><Link className="btn btn-primary d-block mb-2" to={"/cardetail/"+product.id}>Karta git</Link></div>
                 
               </div>
             </div>

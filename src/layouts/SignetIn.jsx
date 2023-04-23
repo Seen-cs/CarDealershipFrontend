@@ -25,7 +25,7 @@ export default function SignetIn({signOut}) {
 {
 localStorage.getItem("token")&&
   <button onClick={logOut} className="btn btn-dark ml-2" style={{marginLeft:"0.5em"}}>
-    <Link onClick={signOut} className="nav-link text-white" to="/user/login">Çıkış Yap</Link>
+    <Link onClick={signOut} className="nav-link text-white" to="/">Çıkış Yap</Link>
   </button>}
 
     </>
