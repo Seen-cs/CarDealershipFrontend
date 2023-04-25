@@ -24,94 +24,49 @@ export default function CarDetails() {
 
   return (
     <>
-
-<div className="col-md-8">
-  <div className="container">
-    <div className="row">
-      <div className="col-md-12">
-        <div className="card mb-4" style={{border: "none"}}>
+      
+      <section className="car-details spad">
+        <div className="container">
           <div className="row">
-            <div className="col-md-6" style={{paddingRight: "0"}}>
-              <img
-                src={resim1}
-                className="card-img-top"
-                alt="Car Image"
-                style={{ height: "100%", objectFit: "cover", borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px"}}
-              />
-            </div>
-            <div className="col-md-6" style={{backgroundColor: "#f8f9fa", borderTopRightRadius: "10px", borderBottomRightRadius: "10px", display: "flex", alignItems: "center", padding: "1.5rem"}}>
-              <div>
-                <h5 className="card-title" style={{fontSize: "28px", fontWeight: "bold", marginBottom: "1rem"}}>
-                  2018 Mercedes-Benz S-Class
-                </h5>
-                <p className="card-text" style={{fontSize: "20px"}}>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Price:</strong> $50/day</li>
-                    <li class="list-group-item"><strong>Color:</strong> Blue</li>
-                    <li class="list-group-item"><strong>Year:</strong> 2021</li>
-                </ul>
-                </p>
-                <div style={{display: "flex", justifyContent: "space-between", marginTop: "2rem"}}>
-                  <div>
-                    <p style={{fontSize: "20px", fontWeight: "bold", marginBottom: "0.5rem"}}>Satıcı:</p>
-                    <h6 style={{fontSize: "18px", marginBottom: "0"}}>{car.userName}</h6>
-                  </div>
-                  <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                    <p style={{fontSize: "20px", fontWeight: "bold", marginBottom: "0.5rem"}}>Satıcıyı Takip Et:</p>
-                    <button type="button" className="btn btn-outline-secondary" style={{fontSize: "20px", fontWeight: "bold", marginTop: "0.5rem"}}>
-                      Takip Et
-                    </button>
-                  </div>
+            <div className="col-lg-9">
+              <div className="car__details__pic">
+                <div className="car__details__pic__large">
+                  <img
+                    className="car-big-img"
+                    src={resim1}
+                    alt=""
+                  />
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+            <div className="col-lg-3">
+              <div className="car__details__sidebar">
+                <div className="car__details__sidebar__model">
 
-    {/* <div className="col-md-8">
-  <div className="container">
-    <div className="row">
-      <div className="col-md-12">
-        <div className="card mb-4" style={{border: "none"}}>
-          <div className="row">
-            <div className="col-md-6" style={{paddingRight: "0"}}>
-              <img
-                src={resim1}
-                className="card-img-top"
-                alt="Car Image"
-                style={{ height: "100%", objectFit: "cover", borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px"}}
-              />
-            </div>
-            <div className="col-md-6" style={{backgroundColor: "#f8f9fa", borderTopRightRadius: "10px", borderBottomRightRadius: "10px", display: "flex", alignItems: "center", padding: "1.5rem"}}>
-              <div>
-                <h5 className="card-title" style={{fontSize: "28px", fontWeight: "bold", marginBottom: "1rem"}}>
-                  2018 Mercedes-Benz S-Class
-                </h5>
-                <p className="card-text" style={{fontSize: "20px"}}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec ante vitae turpis fringilla
-                  tristique. Integer gravida ac justo at posuere.
-                </p>
-                <div style={{display: "flex", justifyContent: "space-between", marginTop: "2rem"}}>
-                  <div>
-                    <p style={{fontSize: "20px", fontWeight: "bold", marginBottom: "0.5rem"}}>Satıcı</p>
-                    <h6 style={{fontSize: "18px", marginBottom: "0"}}>{car.userName}</h6>
-                  </div>
-                  <button type="button" className="btn btn-outline-secondary" style={{fontSize: "20px", fontWeight: "bold"}}>
+                  <p style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "0.5rem" }}>Satıcı:</p>
+                  <h6 style={{ fontSize: "18px", marginBottom: "0" }}>{car.userName}</h6>
+
+
+                  <button type="button" className="btn btn-outline-secondary" style={{ fontSize: "20px", fontWeight: "bold", marginTop: "0.5rem" }}>
                     Takip Et
                   </button>
+                  <p></p>
+                </div>
+                <div className="car__details__sidebar__payment">
+                  <ul>
+                    <li>Marka<span>{car.brand}</span></li>
+                    <li>Model<span>{car.model}</span></li>
+                    <li>Color<span>{car.color}</span></li>
+                    <li>Fiyat<span>$117,000</span></li>
+                  </ul>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>  */}
+      </section>
+
     </>
   )
 }

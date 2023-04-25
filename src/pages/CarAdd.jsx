@@ -25,7 +25,7 @@ export default function CarAdd() {
   }
   const carAdd = async (e) => {
     e.preventDefault();
-    let model = { BrandId: parseInt(brandId), ColorId: parseInt(colorId), Description: description, Km: km, ModelId: parseInt(modelId), Price: parseInt(price), Year: year };
+    let model = { Brand:brandId, Color:colorId, Description: description, Km: km, Model: modelId, Price: parseInt(price), Year: year };
     const token = localStorage.getItem("token");
 
     try {
@@ -79,7 +79,7 @@ export default function CarAdd() {
             <label htmlFor="color">Renk</label>
             <select className="form-control" id="colorId" name="colorId" value={colorId} onChange={(e) => setColor(e.target.value)} >
               {colors.map((color) => (
-                <option key={color.id} value={color.id} selected={color.id === colorId}>{color.name}</option>
+                <option key={color.id} value={color.name} >{color.name}</option>
 
               ))}
             </select>
@@ -89,7 +89,7 @@ export default function CarAdd() {
             <label htmlFor="brandId">Marka</label>
             <select className="form-control" id="brandId" name="brandId" value={brandId} onChange={(e) => setBrand(e.target.value)} >
               {brands.map((brand) => (
-                <option key={brand.id} value={brand.id} selected={brand.id === brandId}>{brand.name}</option>
+                <option key={brand.id} value={brand.name} >{brand.name}</option>
               ))}
             </select>
 
@@ -98,7 +98,7 @@ export default function CarAdd() {
             <label htmlFor="modelId">Model</label>
             <select className="form-control" id="modelId" name="modelId" value={modelId} onChange={(e) => setModel(e.target.value)} >
               {models.map((model) => (
-                <option key={model.id} value={model.id} selected={model.id === modelId}>{model.name}</option>
+                <option key={model.id} value={model.name} >{model.name}</option>
               ))}
             </select>
 
