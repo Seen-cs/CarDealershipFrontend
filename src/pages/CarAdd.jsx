@@ -9,13 +9,13 @@ import { toast } from "react-toastify"
 
 
 export default function CarAdd() {
-  const [brandId, setBrand] = useState("");
-  const [modelId, setModel] = useState("");
+  const [brand, setBrand] = useState("");
+  const [model, setModel] = useState("");
   const [year, setYear] = useState("");
   const [km, setKm] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [colorId, setColor] = useState("");
+  const [color, setColor] = useState("");
 
   //const [showModel,SetShowModel]=useState(true)//modelı submit olduğunda kapatacak component içindeki componenti bu yolla kapatabiliyorum ama çerçeve kalıyor//SetShowModel(false);//{showmodel&& kodu buraya yazıyoz}
   const navigate = useNavigate();
@@ -25,11 +25,11 @@ export default function CarAdd() {
   }
   const carAdd = async (e) => {
     e.preventDefault();
-    let model = { Brand:brandId, Color:colorId, Description: description, Km: km, Model: modelId, Price: parseInt(price), Year: year };
+    let array = { Brand:brand, Color:color, Description: description, Km: km, Model: model, Price: parseInt(price), Year: year };
     const token = localStorage.getItem("token");
 
     try {
-      await axios.post('https://localhost:44303/api/car/add', model, {
+      await axios.post('https://localhost:44303/api/car/add', array, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -51,9 +51,7 @@ export default function CarAdd() {
   const [brands, setBrands] = useState([])
   const [models, setModels] = useState([])
   useEffect(() => {
-    // if (!localStorage.getItem("token")) {
-    //   navigate("user/login")
-    // } else {
+    
       let colorService = new ColorService()
       let brandService = new BrandService()
       let modelService = new ModelService()
@@ -77,7 +75,7 @@ export default function CarAdd() {
           <h2>Register</h2>
           <div className="form-group">
             <label htmlFor="color">Renk</label>
-            <select className="form-control" id="colorId" name="colorId" value={colorId} onChange={(e) => setColor(e.target.value)} >
+            <select className="form-control" id="colorId" name="colorId" value={color} onChange={(e) => setColor(e.target.value)} >
               {colors.map((color) => (
                 <option key={color.id} value={color.name} >{color.name}</option>
 
@@ -87,7 +85,7 @@ export default function CarAdd() {
           </div>
           <div className="form-group">
             <label htmlFor="brandId">Marka</label>
-            <select className="form-control" id="brandId" name="brandId" value={brandId} onChange={(e) => setBrand(e.target.value)} >
+            <select className="form-control" id="brandId" name="brandId" value={brand} onChange={(e) => setBrand(e.target.value)} >
               {brands.map((brand) => (
                 <option key={brand.id} value={brand.name} >{brand.name}</option>
               ))}
@@ -96,7 +94,7 @@ export default function CarAdd() {
           </div>
           <div className="form-group">
             <label htmlFor="modelId">Model</label>
-            <select className="form-control" id="modelId" name="modelId" value={modelId} onChange={(e) => setModel(e.target.value)} >
+            <select className="form-control" id="modelId" name="modelId" value={model} onChange={(e) => setModel(e.target.value)} >
               {models.map((model) => (
                 <option key={model.id} value={model.name} >{model.name}</option>
               ))}

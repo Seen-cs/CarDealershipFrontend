@@ -20,7 +20,7 @@ export default function Login() {
         try {
            let response = await axios.post("https://localhost:44303/api/auth/login", model);
            localStorage.setItem("token", response.data.token);           
-           navigate("/cardetail"); 
+           navigate("/"); 
           
         } catch (error) {
             console.error(error);

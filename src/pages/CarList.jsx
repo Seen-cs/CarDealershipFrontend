@@ -37,7 +37,7 @@ export default function CarList() {
               <p className="card-text">{product.description}</p>
               <p style={{fontWeight: "bold", fontFamily: "sans-serif", fontSize: "16px"}}>{product.price}₺</p>
               <div className='row'>
-                <div ><Link className="btn btn-primary d-block mb-2" to={"/cardetail/"+product.carId}>Karta git</Link></div>
+                <div><Link className="btn btn-primary d-block mb-2" to={"/cardetail/"+product.carId}>Karta git</Link></div>
               </div>
             </div>
           </div>
