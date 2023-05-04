@@ -3,14 +3,15 @@ import { useNavigate, useParams } from 'react-router-dom'
 import "../styles/CarDetails.css"
 import resim1 from "../assets/image/cars/details/cd-1.jpg"
 import CarService from '../services/CarService'
-import axios from 'axios'
 import { toast } from "react-toastify"
+import SubscribeService from '../services/SubscribeService'
 
 export default function CarDetails() {
   let { id } = useParams()
 const [car, setCar] = useState({})
+const [subUser, setSubUser] = useState({})
+const [unSubUser, setunSubUser] = useState({})
 const [isActiveButton, setISActiveButton] = useState(true)
-const token = localStorage.getItem("token");
 const kullaniciId = car.userId;
 
 const activeButton = (e) => {
@@ -41,16 +42,10 @@ const subscribe = async (e) => {
   e.preventDefault();
   
   try {
-    await axios.post(
-      "https://localhost:44303/api/subscribe/subscribe?supUserId=" + kullaniciId,
-      null, // boş veri gövdesi
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const subsService = new SubscribeService()
+   await  subsService.subscribe(kullaniciId).then(result => setSubUser(result.data.data))
     toast.success(`${car.userName} kişisine abone olundu`);
+    console(subUser.message)
   } catch (err) {
     console.log(err);
   }
@@ -58,15 +53,8 @@ const subscribe = async (e) => {
 const unSubscribe = async(e)=>{
   e.preventDefault();
   try {
-    await axios.post(
-      "https://localhost:44303/api/subscribe/deletesubscribe?supUserId=" + kullaniciId,
-      null, // boş veri gövdesi
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const subsService = new SubscribeService();
+    await subsService.unSubscribe(kullaniciId).then(result => setunSubUser(result.data.data))
     toast.success(`${car.userName} kişisine abonelik kaldırıldı!`);
   } catch (err) {
     console.log(err);
@@ -76,7 +64,8 @@ const unSubscribe = async(e)=>{
   return (
     <>
      
-      <section className="car-details spad">
+
+  <section className="car-details spad">
         <div className="container">
           <div className="row">
             <div className="col-lg-9">
@@ -97,7 +86,7 @@ const unSubscribe = async(e)=>{
                   <h6 style={{ fontSize: "18px", marginBottom: "0" }}>{car.userName}</h6>
                   {isActiveButton? <button onClick={activeButton} type="button" className="btn btn-outline-secondary" style={{ fontSize: "20px", fontWeight: "bold", marginTop: "0.5rem" }}>
                     Takip Et
-                  </button>:<button onClick={deActiveButton} type="button" className="btn btn-outline-secondary" style={{ fontSize: "20px", fontWeight: "bold", marginTop: "0.5rem" }}>
+                  </button>:<button onClick={deActiveButton} type="button" className="btn btn-outline-danger" style={{ fontSize: "20px", fontWeight: "bold", marginTop: "0.5rem" }}>
                     Abonelik İptal
                   </button> }
                   <p></p>
@@ -115,6 +104,7 @@ const unSubscribe = async(e)=>{
           </div>
         </div>
       </section>
+
 
     </>
   )

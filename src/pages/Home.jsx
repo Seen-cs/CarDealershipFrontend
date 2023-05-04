@@ -6,6 +6,7 @@ import resim4 from "../assets/image/feature/feature-4.png"
 import resim5 from "../assets/image/feature/feature-5.png"
 import resim6 from "../assets/image/feature/feature-6.png"
 import "../styles/Home.css"
+
 import Footer from '../layouts/Footer'
 export default function Home() {
   return (

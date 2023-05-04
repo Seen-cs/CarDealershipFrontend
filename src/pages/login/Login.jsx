@@ -34,11 +34,11 @@ export default function Login() {
                     <h2>Login</h2>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
-                        <input className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" />
+                        <input className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
-                        <input className="form-control"  value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" />
+                        <input className="form-control"  value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" required minlength="6" />
                     </div>
                     <button type="submit">Login</button>
                     <Link to="/user/register" className="mt-2" style={{marginTop:"3rem"}}>Kayıt Ol</Link>
