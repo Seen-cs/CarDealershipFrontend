@@ -34,11 +34,11 @@ export default function CarList() {
           <div className="card mb-4">
             <img src={resim1} className="" alt="Car Image" />
             <div className="card-body">
-              <h5 className="card-title">{product.year}</h5>
+              <h5 className="card-title">{product.brand}/{product.model}</h5>
               <p className="card-text">{product.description}</p>
               <p style={{fontWeight: "bold", fontFamily: "sans-serif", fontSize: "16px"}}>{product.price}₺</p>
               <div className='row'>
-                <div><Link className="btn btn-primary d-block mb-2" to={"/cardetail/"+product.carId}>Karta git</Link></div>
+                <div><Link className="btn btn-primary d-block mb-2" to={"/cardetail/"+product.carId}>Araba Detay</Link></div>
               </div>
             </div>
           </div>

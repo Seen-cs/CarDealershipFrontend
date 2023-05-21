@@ -177,6 +177,7 @@
 	color: #727171;
 	line-height: 36px;
 	overflow: hidden;
+	float: "left";
 }
 
 .car__details__sidebar__payment ul li:last-child span {
@@ -186,7 +187,7 @@
 .car__details__sidebar__payment ul li span {
 	color: #353535;
 	font-weight: 700;
-	float: right;
+	
 }
 
 .car__details__sidebar__payment .primary-btn {

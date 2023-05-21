@@ -30,7 +30,7 @@ export default function Register() {
   }
   
 
-  const API_KEY = 'ETHsOPIqSCqZB2wRObWX3Y8gs6VMtuoC';
+  const apiKey = "ETHsOPIqSCqZB2wRObWX3Y8gs6VMtuoC";
 
   const handleVerifyEmail = async (e) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ export default function Register() {
     try {
       const response = await axios.get(`https://api.apilayer.com/email_verification/${email}`, {
         headers: {
-          apikey: API_KEY,
+          apikey: apiKey,
         },
       });
       console.log(response.can_connect_smtp)
@@ -58,33 +58,31 @@ export default function Register() {
   };
   
   return (
-    <> {isLoading ? (<div style={{marginTop:"8rem"}} className="text-center">
-    <div className="spinner-border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
-  </div>
+    <> {isLoading ? (<div class="spinner"></div>
+
+     
     ) : (
       <div className="register-container">
         <form onSubmit={handleVerifyEmail} className="register-form">
-          <h2>Register</h2>
+          <h2>Kayıt ol</h2>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">E-mail</label>
              <input className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
           </div>
           <div className="form-group">
-            <label htmlFor="firstname">First Name</label>
+            <label htmlFor="firstname">Ad</label>
             <input className="form-control" value={firstName} onChange={(e) => setFirstName(e.target.value)} type="text" id="firstName" name="firstName" required pattern="[A-Za-z\s]+" />
           </div>
           <div className="form-group">
-            <label htmlFor="lastname">Last Name</label>
+            <label htmlFor="lastname">Soyad</label>
             <input className="form-control" value={lastName} onChange={(e) => setLastName(e.target.value)} type="text" id="lastName" name="lastName" required pattern="[A-Za-z\s]+"/>
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Şifre</label>
             <input className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" required minlength="6" />
           </div>
           <div>
-            <button type="submit">Register</button>
+            <button type="submit">Kayıt Ol</button>
           </div>
         </form>
       </div>)}

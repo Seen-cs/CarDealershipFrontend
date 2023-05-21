@@ -10,7 +10,7 @@ export default function Login() {
 
     useEffect(()=>{
         if(localStorage.getItem("token")){
-            navigate("/")
+            navigate("/car")
         }
         
     })
@@ -31,7 +31,7 @@ export default function Login() {
         <>
             <div className="login-container">
                 <form onSubmit={login} className="login-form">
-                    <h2>Login</h2>
+                    <h2>Giriş Yap</h2>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>

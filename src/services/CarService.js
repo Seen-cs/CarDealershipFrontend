@@ -6,7 +6,7 @@ export default class CarService{
         return axios.get("https://localhost:44303/api/car/getall")
     }
     getByName(id){
-        return axios.post("https://localhost:44303/api/car/getbyuserid?Carid="+id)
+        return axios.get("https://localhost:44303/api/car/getbyuserid?Carid="+id)
     }
     
     

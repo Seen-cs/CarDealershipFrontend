@@ -15,7 +15,7 @@ export default function SubUser() {
           <p>Takip Edenler</p>
         </div>
         <ul className="categoriesList">
-          {users.map((user) => (
+          {users && users.map((user) => (
             <li key={user.id}>
               <a href="#">{user.firstName} {user.lastName}</a>
             </li>

@@ -16,7 +16,7 @@ export default class SubscribeService {
     );
   }
   //araba sahibinin id
-  unSubscribe(id) {//subscribe araç sahibine
+  unSubscribe(id) {
     const token = localStorage.getItem("token");
     return axios.post(
       "https://localhost:44303/api/subscribe/deletesubscribe?supUserId=" + id,

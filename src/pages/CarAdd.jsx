@@ -37,12 +37,12 @@ export default function CarAdd() {
       toast.success("Araba Kaydınız tamamlandı");
       closeModel();
 
-    } catch (error) {
-      toast.success("Tekrardan Giriş Yapınız");
-      localStorage.removeItem('token');
+    } catch (err) {
+      toast.success("Tekrar deneyin");
+     // localStorage.removeItem('token');
       closeModel();
       navigate("/")
-      console.log(error.response.data);
+      console.log(err.response.data);
     }
   }
 
@@ -102,7 +102,7 @@ export default function CarAdd() {
 
           </div>
           <div className="form-group">
-            <label htmlFor="firstname">Year</label>
+            <label htmlFor="firstname">Üretim Yılı</label>
             <input className="form-control" value={year} onChange={(e) => setYear(e.target.value)} type="text" id="year" name="year" />
           </div>
 
@@ -112,12 +112,12 @@ export default function CarAdd() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="firstname">Price</label>
+            <label htmlFor="firstname">Fiyat</label>
             <input className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} type="text" id="price" name="price" />
           </div>
 
           <div className="form-group">
-            <label htmlFor="firstname">Description</label>
+            <label htmlFor="firstname">Açıklama</label>
             <input className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} type="text" id="description" name="description" />
           </div>
 
